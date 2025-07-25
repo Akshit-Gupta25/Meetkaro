@@ -1,0 +1,302 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ======== stream css overrides ======== */
+.str-video__call-stats {
+  max-width: 500px;
+  position: relative;
+}
+
+.str-video__speaker-layout__wrapper {
+  max-height: 700px;
+}
+
+.str-video__participant-details {
+  color: white;
+}
+
+.str-video__menu-container {
+  color: white;
+}
+
+.str-video__notification {
+  color: white;
+}
+
+.str-video__participant-list {
+  background-color: #1c1f2e;
+  padding: 10px;
+  border-radius: 10px;
+  color: white;
+  height: 100%;
+}
+
+.str-video__call-controls__button {
+  height: 40px;
+}
+
+.glassmorphism {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+.glassmorphism2 {
+  background: rgba(18, 17, 17, 0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* ==== clerk class override ===== */
+
+.cl-userButtonPopoverActionButtonIcon {
+  color: white;
+}
+
+.cl-logoBox {
+  height: 40px;
+}
+.cl-dividerLine {
+  background: #252a41;
+  height: 2px;
+}
+
+.cl-socialButtonsIconButton {
+  border: 3px solid #565761;
+}
+
+.cl-internal-wkkub3 {
+  color: white;
+}
+.cl-userButtonPopoverActionButton {
+  color: white;
+}
+
+/* =============================== */
+
+@layer utilities {
+  .flex-center {
+    @apply flex justify-center items-center;
+  }
+
+  .flex-between {
+    @apply flex justify-between items-center;
+  }
+}
+
+/* animation */
+
+.show-block {
+  width: 100%;
+  max-width: 350px;
+  display: block;
+  animation: show 0.7s forwards linear;
+}
+
+@keyframes show {
+  0% {
+    animation-timing-function: ease-in;
+    width: 0%;
+  }
+
+  100% {
+    animation-timing-function: ease-in;
+    width: 100%;
+  }
+}
+
+/* ========== RESPONSIVE IMPROVEMENTS ========== */
+
+/* Custom scrollbar hiding */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Enhanced mobile touch targets */
+.touch-target {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Responsive video container */
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16 / 9;
+}
+
+/* Mobile-first responsive grid */
+.meeting-grid {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+@media (min-width: 640px) {
+  .meeting-grid {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .meeting-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Chat animations */
+.slide-in-right {
+  animation: slideInRight 0.3s ease-out;
+}
+
+.slide-out-right {
+  animation: slideOutRight 0.3s ease-in;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOutRight {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+/* Stream Video React SDK responsive overrides */
+.str-video__call-layout {
+  width: 100%;
+  height: 100%;
+}
+
+.str-video__paginated-grid-layout {
+  gap: 0.25rem;
+}
+
+@media (min-width: 640px) {
+  .str-video__paginated-grid-layout {
+    gap: 0.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .str-video__paginated-grid-layout {
+    gap: 1rem;
+  }
+}
+
+.str-video__participant-view {
+  border-radius: 0.5rem;
+  overflow: hidden;
+  min-height: 120px;
+}
+
+@media (max-width: 640px) {
+  .str-video__participant-view {
+    min-height: 200px;
+  }
+}
+
+/* Call controls responsive overrides */
+.str-video__call-controls {
+  gap: 0.25rem;
+}
+
+@media (min-width: 640px) {
+  .str-video__call-controls {
+    gap: 0.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .str-video__call-controls {
+    gap: 0.75rem;
+  }
+}
+
+.str-video__call-controls button {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Participants list responsive */
+.str-video__participants-list {
+  width: 100%;
+  max-width: 24rem;
+}
+
+@media (max-width: 768px) {
+  .str-video__participants-list {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+    left: 1rem;
+    background: hsl(var(--background));
+    border-radius: 0.5rem;
+    box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+    z-index: 50;
+  }
+}
+
+/* Mobile-optimized chat styles */
+.str-chat {
+  height: 100%;
+}
+
+.str-chat__container {
+  height: 100%;
+}
+
+.str-chat__main-panel {
+  height: 100%;
+}
+
+.str-chat__channel {
+  height: 100%;
+}
+
+/* Mobile optimizations for meeting room */
+@media (max-width: 768px) {
+  .str-video__call-stats {
+    max-width: 300px;
+    font-size: 0.875rem;
+  }
+  
+  .str-video__speaker-layout__wrapper {
+    max-height: 500px;
+  }
+  
+  .str-video__call-controls__button {
+    height: 36px;
+    width: 36px;
+  }
+}
+
+/* Improved mobile touch experience */
+@media (hover: none) and (pointer: coarse) {
+  button, [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
